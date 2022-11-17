@@ -12,33 +12,27 @@ app.use(express.urlencoded( { extended: true }));
 app.use(express.json());
 
 app.get('/app/', (req, res) => {
-	res.status(200);	
-	res.send("200 OK");
+	res.status(200).send("200 OK");
 })
 
 app.get('/app/roll/', (req, res) => {
-	res.status(200);	
-	res.send(roll(6,2,1));
+	res.status(200).send(roll(6,2,1));
 })
 
-app.get('/app/roll/', (req, res) => {
-        res.status(200);
-	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
+app.post('/app/roll/', (req, res) => {
+        res.status(201).send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 })
 
 app.get('/app/roll/:sides/', (req, res) => {
-	res.status(200);	
-	res.send(roll(parseInt(req.params.sides), 2, 1));
+	res.status(200).send(roll(parseInt(req.params.sides), 2, 1));
 })
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-        res.status(200); 
-	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), 1));
+        res.status(200).send(roll(parseInt(req.params.sides), parseInt(req.params.dice), 1));
 })
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-	res.status(200);	
-	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
+	res.status(200).send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 })
 
 app.use(function(req,res){
