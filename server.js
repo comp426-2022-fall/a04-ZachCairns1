@@ -36,8 +36,9 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
 	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 })
 
-app.use(function(req,res){
-    res.status(404).send("404 NOT FOUND");
+app.get("*", (req, res) => {
+	res.status(404);
+	res.send("404 NOT FOUND");   
 });
 
 app.listen(port);
