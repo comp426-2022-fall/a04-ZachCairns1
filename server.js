@@ -7,7 +7,7 @@ import { roll } from './lib/roll.js';
 let args = minimist(process.argv.slice(2));
 
 const app = express();
-const port = 5000 || args.port;
+const port = args.port || 5000;
 
 app.get('/app/', (req, res) => {
 	res.send("200 OK");
